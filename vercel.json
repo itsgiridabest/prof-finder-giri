@@ -1,0 +1,44 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "env": {
+    "DATABASE_URL": {
+      "description": "Vercel Postgres connection string",
+      "required": false
+    },
+    "OPENAI_API_KEY": {
+      "description": "OpenAI API key for AI features",
+      "required": true
+    },
+    "JWT_SECRET": {
+      "description": "Secret for JWT token signing",
+      "required": true
+    },
+    "OWNER_OPEN_ID": {
+      "description": "Owner's Manus OAuth open ID",
+      "required": true
+    },
+    "OWNER_NAME": {
+      "description": "Owner's name (e.g., Giri)",
+      "required": true
+    }
+  },
+  "functions": {
+    "api/**/*.ts": {
+      "memory": 1024,
+      "maxDuration": 60
+    }
+  },
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api/$1"
+    },
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
