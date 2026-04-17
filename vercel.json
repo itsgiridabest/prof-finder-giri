@@ -1,8 +1,7 @@
 {
   "version": 2,
   "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
+  "outputDirectory": "dist/public",
   "env": {
     "DATABASE_URL": {
       "description": "Vercel Postgres connection string",
